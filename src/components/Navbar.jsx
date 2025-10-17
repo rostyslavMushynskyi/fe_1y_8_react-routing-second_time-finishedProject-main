@@ -79,13 +79,13 @@ function Navbar() {
             <div className={styles.navigationLinks}>
               <NavbarLink to="/">Головна</NavbarLink>
               <NavbarLink to="/movies">Фільми</NavbarLink>
-              <NavbarLink to="/author">Про автора</NavbarLink>
               {isAuthenticated && (
                 <>
                   <NavbarLink to="/favorites">Улюблені</NavbarLink>
                   <NavbarLink to="/my-ratings">Мої оцінки</NavbarLink>
                 </>
               )}
+              <NavbarLink to="/author">Про автора</NavbarLink>
             </div>
           </div>
 
