@@ -1,0 +1,316 @@
+/* Footer Component Styles */
+
+.footer {
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.95),
+    rgba(30, 41, 59, 0.9)
+  );
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(100, 116, 139, 0.3);
+  margin-top: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(102, 126, 234, 0.5),
+    transparent
+  );
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.footerContent {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding: 3rem 0 2rem;
+  color: white;
+}
+
+/* Brand Section */
+.brandSection {
+  max-width: 300px;
+}
+
+.description {
+  margin: 1.5rem 0 0;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+/* Links Sections */
+.linkTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
+  color: rgba(255, 255, 255, 0.9);
+  position: relative;
+}
+
+.linkTitle::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border-radius: 1px;
+}
+
+.footerNav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footerLink {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  position: relative;
+  width: fit-content;
+}
+
+.footerLink::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  transition: width 0.3s ease;
+}
+
+.footerLink:hover {
+  color: white;
+  transform: translateX(3px);
+}
+
+.footerLink:hover::before {
+  width: 100%;
+}
+
+/* Tech Tags */
+.techTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.techTag {
+  background: linear-gradient(
+    45deg,
+    rgba(102, 126, 234, 0.2),
+    rgba(118, 75, 162, 0.2)
+  );
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0.4rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.techTag:hover {
+  background: linear-gradient(
+    45deg,
+    rgba(102, 126, 234, 0.3),
+    rgba(118, 75, 162, 0.3)
+  );
+  border-color: rgba(102, 126, 234, 0.5);
+  transform: scale(1.05);
+}
+
+/* Bottom Bar */
+.bottomBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(100, 116, 139, 0.2);
+  font-size: 0.9rem;
+}
+
+.copyright {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.copyright p {
+  margin: 0;
+}
+
+.authorCredit {
+  display: flex;
+  align-items: center;
+}
+
+.authorLink {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background: linear-gradient(
+    45deg,
+    rgba(102, 126, 234, 0.1),
+    rgba(118, 75, 162, 0.1)
+  );
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.authorLink::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(102, 126, 234, 0.1),
+    rgba(118, 75, 162, 0.1)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.authorLink:hover {
+  color: white;
+  border-color: rgba(102, 126, 234, 0.5);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+  transform: translateY(-2px);
+}
+
+.authorLink:hover::before {
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .footerContent {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .brandSection {
+    grid-column: 1 / -1;
+    max-width: none;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .linksSection,
+  .infoSection,
+  .techSection {
+    text-align: center;
+  }
+
+  .linkTitle::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footerNav {
+    align-items: center;
+  }
+
+  .techTags {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .footerContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 0 1.5rem;
+    text-align: center;
+  }
+
+  .brandSection {
+    max-width: none;
+  }
+
+  .linksSection,
+  .infoSection,
+  .techSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .linkTitle::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footerNav {
+    align-items: center;
+  }
+
+  .footerLink {
+    margin: 0 auto;
+  }
+
+  .footerLink:hover {
+    transform: translateX(0) scale(1.02);
+  }
+
+  .bottomBar {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .techTags {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .footerContent {
+    padding: 1.5rem 0 1rem;
+    gap: 1.5rem;
+  }
+
+  .techTag {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .copyright {
+    font-size: 0.85rem;
+  }
+
+  .authorLink {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+}

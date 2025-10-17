@@ -1,0 +1,375 @@
+/* MovieDetailsPage styles */
+.movieDetailsPage {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  padding: 2rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Back Button */
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+  text-decoration: none;
+}
+
+.backButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-5px);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.backIcon {
+  font-size: 1.2rem;
+}
+
+/* Movie Content */
+.movieContent {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 25px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.movieHeader {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Poster */
+.posterContainer {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  /* box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); */
+}
+
+.moviePoster {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.moviePoster:hover {
+  transform: scale(1.02);
+}
+
+.posterPlaceholder {
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* Movie Info */
+.movieInfo {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.movieTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.movieMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.rating {
+  color: #ffd700;
+  font-weight: 600;
+}
+
+.runtime {
+  color: #4ecdc4;
+}
+
+.releaseDate {
+  color: #ff6b6b;
+}
+
+/* Overview Section */
+.overviewSection {
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.sectionTitle::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  border-radius: 2px;
+}
+
+.overview {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+/* Genres */
+.genresSection {
+  margin-bottom: 2rem;
+}
+
+.genresList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.genreTag {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.genreTag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Action Section */
+.actionSection {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+/* Navigation Tabs */
+.navigationTabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.tabLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.tabLink:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.tabLink.active {
+  background: linear-gradient(45deg, #4ecdc4, #44a08d);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.tabIcon {
+  font-size: 1.2rem;
+}
+
+/* Loading State */
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+/* Error State */
+.errorContainer {
+  text-align: center;
+  color: white;
+  padding: 3rem 1rem;
+}
+
+.errorTitle {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ff6b6b;
+}
+
+.errorMessage {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+}
+
+/* Additional Info Cards */
+.infoCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.infoCard {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 1.5rem;
+  text-align: center;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.infoCard h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.infoCard p {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  .movieContent {
+    padding: 1.5rem;
+  }
+
+  .movieHeader {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .posterContainer {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .movieTitle {
+    font-size: 2rem;
+  }
+
+  .movieMeta {
+    justify-content: center;
+  }
+
+  .navigationTabs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tabLink {
+    width: 200px;
+    justify-content: center;
+  }
+
+  .infoCards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .movieContent {
+    padding: 1rem;
+  }
+
+  .movieTitle {
+    font-size: 1.5rem;
+  }
+
+  .metaItem {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .overview {
+    font-size: 1rem;
+  }
+
+  .backButton {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,71 @@
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 200; /* Вищий z-index для кнопки */
+  margin-left: 20px;
+  position: relative;
+}
+
+.noMargin {
+  margin-left: 0;
+}
+
+.line {
+  width: 100%;
+  height: 3px; /* Трохи товщі лінії для кращої видимості */
+  background: #fff;
+  transition: all 0.3s ease;
+  transform-origin: center;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.open .line:first-child {
+  transform: translateY(10.5px) rotate(45deg); /* Точніше позиціонування */
+}
+
+.open .line:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.open .line:last-child {
+  transform: translateY(-10.5px) rotate(-45deg); /* Точніше позиціонування */
+}
+
+.burger:hover .line {
+  background: #646cff;
+}
+
+.iconX {
+  width: 28px;
+  height: 28px;
+  color: #fff;
+}
+
+.burger:hover .iconX {
+  color: #646cff;
+}
+
+.burger:focus {
+  outline: 2px solid #646cff;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.burger:focus:not(:focus-visible) {
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .burger {
+    display: flex;
+  }
+}

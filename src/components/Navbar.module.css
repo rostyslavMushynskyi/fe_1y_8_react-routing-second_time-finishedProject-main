@@ -1,0 +1,419 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 10px 0;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: linear-gradient(135deg, rgba(13, 17, 36, 0.85), rgba(26, 28, 56, 0.85));
+  border-bottom: 1px solid rgba(100, 108, 255, 0.2);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+  transition: background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.scrolled {
+  background: linear-gradient(135deg, rgba(13, 17, 36, 0.95), rgba(26, 28, 56, 0.95));
+  border-bottom-color: rgba(100, 108, 255, 0.3);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+}
+
+.navContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.navbar::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #646cff, #747bff, #8b5cf6);
+  opacity: 0.7;
+}
+
+.leftSection {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.navigationLinks {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.navigationLinks a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.navigationLinks a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+.favoritesWrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.favoritesBadge {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  background: linear-gradient(135deg, #ef4444, #f59e0b);
+  color: #fff;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.rightSection {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.loading {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.welcome {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.username {
+  color: #646cff;
+  font-weight: 600;
+}
+
+.welcome:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(100, 108, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Overlay для затемнення фону */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 149;
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Кнопка закриття */
+.closeButton {
+  position: absolute !important;
+  top: 20px !important;
+  right: 20px !important;
+  left: auto !important;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 200;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #646cff;
+  color: #646cff;
+  transform: rotate(90deg);
+}
+
+.closeButton:active {
+  transform: rotate(90deg) scale(0.95);
+}
+
+/* Мобільне меню */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(13, 17, 36, 0.98) 0%, rgba(22, 24, 48, 0.98) 100%);
+  z-index: 150;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(100%);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
+  text-align: center;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  overflow: hidden;
+}
+
+.mobileMenuContent {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  /* Дозволяємо скрол тільки всередині меню */
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mobileHeader {
+  padding: 80px 20px 20px;
+  text-align: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.welcomeMobile {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px 24px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.mobileMenu.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0s;
+}
+
+.mobileNavigationLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  padding: 20px;
+  max-width: 320px;
+  margin: 0 auto;
+  flex: 1;
+  justify-content: flex-start;
+  padding-bottom: 40px;
+}
+
+.mobileNavigationLinks a {
+  font-size: 1.4rem;
+  font-weight: 500;
+  padding: 14px 32px;
+  width: 100%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobileNavigationLinks a:hover {
+  background: rgba(100, 108, 255, 0.2);
+  color: #fff;
+  transform: translateY(-2px) scale(1.02);
+  border-color: rgba(100, 108, 255, 0.5);
+}
+
+.mobileNavigationLinks a:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.mobileNavigationLinks a::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(135deg, rgba(100, 108, 255, 0.5), rgba(139, 92, 246, 0.5));
+  border-radius: 12px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mobileNavigationLinks a:hover::before {
+  opacity: 1;
+}
+
+.mobileRightSection {
+  display: none;
+  align-items: center;
+  gap: 15px;
+}
+
+.profileIcon {
+  font-size: 1.5rem;
+}
+
+.mobileProfileLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Анімації для мобільного меню */
+.menuItem {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mobileMenu.open .menuItem {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+  .navbar { padding: 10px 0; }
+  .navContent { padding: 0 12px; }
+
+  .navigationLinks {
+    display: none !important;
+  }
+
+  .rightSection {
+    display: flex;
+  }
+
+  .rightSection .welcome,
+  .rightSection > a {
+    display: none;
+  }
+
+  .mobileRightSection {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  .leftSection {
+    justify-content: flex-start;
+    gap: 15px;
+  }
+
+  .logo {
+    transform: scale(0.9);
+  }
+
+  .welcome {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+
+  .username {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 12px 15px;
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+
+  .leftSection {
+    gap: 10px;
+  }
+
+  .rightSection {
+    gap: 10px;
+  }
+
+  .welcome {
+    display: none;
+  }
+
+  .mobileNavigationLinks {
+    gap: 14px;
+    padding: 15px;
+    padding-bottom: 30px;
+  }
+
+  .mobileNavigationLinks a {
+    font-size: 1.3rem;
+    padding: 12px 28px;
+  }
+
+  .mobileHeader {
+    padding: 70px 15px 15px;
+  }
+
+  .welcomeMobile {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    margin-bottom: 15px;
+  }
+
+  .closeButton {
+    top: 15px !important;
+    right: 15px !important;
+    width: 40px !important;
+    height: 40px !important;
+  }
+}

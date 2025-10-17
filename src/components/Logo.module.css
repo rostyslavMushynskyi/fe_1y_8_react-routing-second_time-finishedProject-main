@@ -1,0 +1,134 @@
+/* Logo Component Styles */
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logoLink:hover {
+  transform: scale(1.05);
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logoIcon {
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transform-origin: center top;
+}
+
+.logoLink:hover .logoIcon {
+  animation: clapperClap 0.6s ease-in-out;
+}
+
+@keyframes clapperClap {
+  0% {
+    transform: rotateX(0deg);
+  }
+  25% {
+    transform: rotateX(-15deg);
+  }
+  50% {
+    transform: rotateX(0deg);
+  }
+  75% {
+    transform: rotateX(-10deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.movieText {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+.rateText {
+  background: linear-gradient(45deg, #ffd700, #ff6b6b);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite reverse;
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Size Variants */
+.small {
+  transform: scale(0.8);
+}
+
+.small .logoIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.small .logoText {
+  font-size: 0.9rem;
+}
+
+.medium .logoIcon {
+  width: 32px;
+  height: 32px;
+}
+
+.medium .logoText {
+  font-size: 1.1rem;
+}
+
+.large {
+  transform: scale(1.2);
+}
+
+.large .logoIcon {
+  width: 40px;
+  height: 40px;
+}
+
+.large .logoText {
+  font-size: 1.3rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .logoContainer {
+    gap: 0.5rem;
+  }
+
+  .medium .logoIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .medium .logoText {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,376 @@
+/* FilterSort.module.css */
+
+.filterSort {
+  background: linear-gradient(135deg, #1e1e2e 0%, #2d2d44 100%);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.headerLeft {
+  flex: 1;
+  min-width: 200px;
+}
+
+.headerRight {
+  flex-shrink: 0;
+}
+
+.sortSelect {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.label {
+  color: #e0e0e0;
+  font-weight: 500;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.select {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: #fff;
+  padding: 8px 12px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+  min-width: 200px;
+  /* Make native dropdown respect dark theme on Windows/Chromium */
+  color-scheme: dark;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.select:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.select:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+/* Native dropdown list items (supported in most browsers) */
+.select option,
+.select optgroup {
+  background-color: #23263a; /* dark surface */
+  color: #ffffff;
+}
+
+/* Hide legacy IE arrow if present */
+.select::-ms-expand {
+  display: none;
+}
+
+.filterToggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  border-radius: 8px;
+  color: #4caf50;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.filterToggle:hover {
+  background: rgba(76, 175, 80, 0.15);
+  border-color: rgba(76, 175, 80, 0.5);
+  transform: translateY(-1px);
+}
+
+.filterToggle.active {
+  background: rgba(76, 175, 80, 0.2);
+  border-color: #4caf50;
+}
+
+.filterIcon {
+  font-size: 16px;
+}
+
+.filterBadge {
+  background: #4caf50;
+  color: #fff;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 11px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.arrow.up {
+  transform: rotate(180deg);
+}
+
+.filtersPanel {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.filterGroup {
+  margin-bottom: 25px;
+}
+
+.filterGroup:last-child {
+  margin-bottom: 0;
+}
+
+.filterTitle {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filterTitle::before {
+  content: "";
+  width: 4px;
+  height: 16px;
+  background: linear-gradient(135deg, #4caf50, #45a049);
+  border-radius: 2px;
+}
+
+/* Жанри */
+.genresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+}
+
+.genreItem {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.genreItem:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.genreItem.selected {
+  background: rgba(76, 175, 80, 0.2);
+  border-color: #4caf50;
+  color: #4caf50;
+}
+
+.genreCheckbox {
+  margin: 0;
+  margin-right: 8px;
+  accent-color: #4caf50;
+}
+
+.genreLabel {
+  font-size: 13px;
+  font-weight: 500;
+  color: inherit;
+}
+
+/* Діапазони - ВИПРАВЛЕНО */
+.yearRange,
+.ratingRange {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  align-items: start;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.inputGroup .label {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  color: #fff;
+  padding: 8px 10px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.input:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Кнопки дій */
+.filterActions {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+}
+
+.clearButton {
+  background: rgba(244, 67, 54, 0.1);
+  border: 1px solid rgba(244, 67, 54, 0.3);
+  border-radius: 6px;
+  color: #f44336;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.clearButton:hover:not(:disabled) {
+  background: rgba(244, 67, 54, 0.15);
+  border-color: rgba(244, 67, 54, 0.5);
+  transform: translateY(-1px);
+}
+
+.clearButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .filterSort {
+    padding: 15px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .headerLeft {
+    min-width: auto;
+  }
+
+  .sortSelect {
+    justify-content: space-between;
+  }
+
+  .select {
+    min-width: auto;
+    flex: 1;
+  }
+
+  .genresGrid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 6px;
+  }
+
+  .genreItem {
+    padding: 6px 10px;
+  }
+
+  .genreLabel {
+    font-size: 12px;
+  }
+
+  .yearRange,
+  .ratingRange {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .filterActions {
+    margin-top: 15px;
+    padding-top: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .filterSort {
+    padding: 12px;
+    margin-bottom: 20px;
+  }
+
+  .genresGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .filterToggle {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .filterBadge {
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+  }
+
+  .yearRange,
+  .ratingRange {
+    gap: 10px;
+  }
+}

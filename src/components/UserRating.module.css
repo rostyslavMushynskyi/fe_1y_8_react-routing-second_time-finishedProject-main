@@ -1,0 +1,138 @@
+.userRating {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  backdrop-filter: blur(10px);
+}
+
+.title {
+  color: #fff;
+  margin: 0 0 15px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.ratingContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.starsContainer {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.star {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  padding: 5px;
+  border-radius: 50%;
+  filter: grayscale(100%) opacity(0.4);
+}
+
+.star:hover {
+  transform: scale(1.2);
+}
+
+.star.active {
+  filter: none;
+  transform: scale(1.1);
+}
+
+.star:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.ratingInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 30px;
+}
+
+.currentRating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ratingValue {
+  color: #ffd700;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.removeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 5px;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.removeButton:hover {
+  transform: scale(1.1);
+}
+
+.removeButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.noRating {
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+}
+
+.loading {
+  color: #007bff;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Адаптивний дизайн */
+@media (max-width: 768px) {
+  .userRating {
+    padding: 15px;
+    margin: 15px 0;
+  }
+
+  .starsContainer {
+    gap: 4px;
+  }
+
+  .star {
+    font-size: 1.3rem;
+    padding: 3px;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .starsContainer {
+    gap: 2px;
+  }
+
+  .star {
+    font-size: 1.1rem;
+    padding: 2px;
+  }
+
+  .ratingContainer {
+    gap: 8px;
+  }
+}
