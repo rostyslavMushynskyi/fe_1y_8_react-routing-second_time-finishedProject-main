@@ -85,7 +85,7 @@ function AuthorPage() {
             <div className={styles.certificateInfo}>
               <h3 className={styles.certificateTitle}>GoITeens — Front‑End</h3>
               <p className={styles.certificateMeta}>
-                Оцінка: <strong>100/100</strong> • 380 годин • Дата: 05.06.2024
+                Оцінка: <strong>100/100</strong> • 380 годин • Дата: 30.04.2024
               </p>
               <div className={styles.certificateActions}>
                 <a
