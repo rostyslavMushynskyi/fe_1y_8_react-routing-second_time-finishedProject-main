@@ -1,6 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import styles from "./AuthorPage.module.css";
 import rostyslavAvatar from "../assets/rostyslav-avatar.png";
+import certificateImg from "../assets/certificate.png";
+import certificatePdf from "../assets/certificate.pdf";
 
 function AuthorPage() {
   return (
@@ -36,7 +38,7 @@ function AuthorPage() {
               сучасних користувацьких інтерфейсів. Спеціалізуюся на React,
               Node.js та сучасних веб-технологіях.
             </p>
-            
+
             {/* Contact Buttons */}
             <div className={styles.heroContacts}>
               <a
@@ -64,6 +66,44 @@ function AuthorPage() {
                 <span className={styles.contactIcon}>📧</span>
                 Email
               </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Certificate Section */}
+        <section className={styles.certificateSection}>
+          <h2 className={styles.sectionTitle}>Сертифікат Front‑End курсу</h2>
+          <div className={styles.certificateCard}>
+            <div className={styles.certificateMedia}>
+              <img
+                src={certificateImg}
+                alt="Сертифікат про завершення курсу Front‑End"
+                className={styles.certificateImage}
+                loading="lazy"
+              />
+            </div>
+            <div className={styles.certificateInfo}>
+              <h3 className={styles.certificateTitle}>GoITeens — Front‑End</h3>
+              <p className={styles.certificateMeta}>
+                Оцінка: <strong>100/100</strong> • 380 годин • Дата: 05.06.2024
+              </p>
+              <div className={styles.certificateActions}>
+                <a
+                  href={certificatePdf}
+                  className={styles.actionButton}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Переглянути (PDF)
+                </a>
+                <a
+                  href={certificatePdf}
+                  className={styles.actionButton}
+                  download
+                >
+                  Завантажити PDF
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -186,7 +226,8 @@ function AuthorPage() {
         <section className={styles.contactSection}>
           <h2 className={styles.sectionTitle}>Давайте співпрацювати!</h2>
           <p className={styles.contactDescription}>
-            Готовий до нових викликів і цікавих проектів. Зв&apos;яжіться зі мною!
+            Готовий до нових викликів і цікавих проектів. Зв&apos;яжіться зі
+            мною!
           </p>
           <div className={styles.contactInfo}>
             <a
