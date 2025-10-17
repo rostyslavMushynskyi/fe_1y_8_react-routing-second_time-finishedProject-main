@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import TopPremiereWidget from "../components/TopPremiereWidget";
+import TrailerOfTheDay from "../components/TrailerOfTheDay";
 import { getTrendingService } from "../services/trendingService";
 import { Oval } from "react-loader-spinner";
 import FavoriteButton from "../components/FavoriteButton";
-import HeroVideo from "../components/HeroVideo";
 import { motion } from "framer-motion";
 import styles from "./HomePage.module.css";
 
@@ -136,10 +137,16 @@ function HomePage() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.25 }}
         >
-          <HeroVideo
-            videoId="U2Qp5pL3ovA"
-            title="Дюна: Частина друга — офіційний трейлер"
-          />
+          <TrailerOfTheDay region="UA" />
+        </motion.section>
+
+        <motion.section
+          variants={fadeBlurUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.25 }}
+        >
+          <TopPremiereWidget region="UA" days={14} />
         </motion.section>
 
         {/* Trending Movies Section (анімація при скролі) */}

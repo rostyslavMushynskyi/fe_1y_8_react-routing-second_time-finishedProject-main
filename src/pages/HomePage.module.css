@@ -48,7 +48,7 @@
 }
 
 .title {
-  font-size: 3.5rem;
+  font-size: 3.75rem; /* трохи збільшено */
   font-weight: 800;
   margin-bottom: 1rem;
   background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
@@ -70,10 +70,18 @@
 }
 
 .subtitle {
-  font-size: 1.2rem;
+  font-size: 1.25rem; /* трохи збільшено */
   opacity: 0.9;
-  line-height: 1.6;
+  line-height: 1.7;
   margin-bottom: 2rem;
+}
+
+/* CTA group */
+.ctaGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
 }
 
 .ctaButton {
@@ -92,6 +100,29 @@
 .ctaButton:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+/* Secondary button: Про автора */
+.secondaryButton {
+  display: inline-block;
+  padding: 1rem 2rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.secondaryButton:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Features Section */
@@ -121,6 +152,8 @@
 .featureIcon {
   font-size: 3rem;
   margin-bottom: 1rem;
+  line-height: 1;
+  will-change: transform, filter;
 }
 
 .featureTitle {
@@ -134,6 +167,88 @@
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.5;
+}
+
+/* Feature icons animations */
+.features .feature:nth-child(1) .featureIcon {
+  /* 🎬 clap (knock) */
+  transform-origin: 50% 80%;
+  animation: clap 1.6s ease-in-out infinite;
+}
+
+@keyframes clap {
+  0%,
+  60%,
+  100% {
+    transform: rotate(0deg) translateY(0);
+  }
+  10% {
+    transform: rotate(-18deg) translateY(-2px);
+  }
+  20% {
+    transform: rotate(14deg) translateY(0);
+  }
+  30% {
+    transform: rotate(-12deg) translateY(-1px);
+  }
+  40% {
+    transform: rotate(9deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-6deg) translateY(-1px);
+  }
+}
+
+.features .feature:nth-child(2) .featureIcon {
+  /* ⭐ spin */
+  animation: spin 3.5s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.features .feature:nth-child(3) .featureIcon {
+  /* ❤️ heartbeat */
+  animation: heartbeat 1.3s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.22);
+  }
+  30% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.15);
+  }
+  60% {
+    transform: scale(1);
+  }
+}
+
+/* Enhance on hover */
+.feature:hover .featureIcon {
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .features .feature:nth-child(1) .featureIcon,
+  .features .feature:nth-child(2) .featureIcon,
+  .features .feature:nth-child(3) .featureIcon {
+    animation: none !important;
+  }
 }
 
 /* Trending Section */
@@ -430,7 +545,8 @@
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -464,7 +580,7 @@
   }
 
   .title {
-    font-size: 2.5rem;
+    font-size: 2.6rem;
   }
 
   .subtitle {
@@ -474,6 +590,16 @@
   .ctaButton {
     font-size: 1rem;
     padding: 0.875rem 1.75rem;
+  }
+
+  .secondaryButton {
+    font-size: 0.95rem;
+    padding: 0.875rem 1.5rem;
+  }
+
+  .ctaGroup {
+    gap: 0.6rem;
+    flex-wrap: wrap;
   }
 
   .features {
@@ -511,11 +637,11 @@
 
 @media (max-width: 480px) {
   .title {
-    font-size: 2rem;
+    font-size: 2.1rem;
   }
 
   .subtitle {
-    font-size: 0.95rem;
+    font-size: 0.98rem;
   }
 
   .moviesGrid {

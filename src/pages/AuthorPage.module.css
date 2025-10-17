@@ -108,7 +108,8 @@
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
@@ -183,6 +184,7 @@
 .contactButton:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+  color: #fff;
 }
 
 .contactIcon {
@@ -431,6 +433,7 @@
   );
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  color: white;
 }
 
 .linkIcon {

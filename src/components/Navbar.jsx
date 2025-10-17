@@ -22,41 +22,41 @@ function Navbar() {
   useEffect(() => {
     if (isMobileMenuOpen) {
       const scrollY = window.scrollY;
-      document.body.style.position = 'fixed';
+      document.body.style.position = "fixed";
       document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
-      document.body.style.overflow = 'hidden';
+      document.body.style.width = "100%";
+      document.body.style.overflow = "hidden";
     } else {
       const scrollY = document.body.style.top;
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      document.body.style.overflow = '';
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      document.body.style.overflow = "";
       if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+        window.scrollTo(0, parseInt(scrollY || "0") * -1);
       }
     }
 
     return () => {
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      document.body.style.overflow = '';
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      document.body.style.overflow = "";
     };
   }, [isMobileMenuOpen]);
 
   // Закриття меню при натисканні Escape
   useEffect(() => {
     const handleEscape = (e) => {
-      if (e.key === 'Escape' && isMobileMenuOpen) {
+      if (e.key === "Escape" && isMobileMenuOpen) {
         closeMobileMenu();
       }
     };
 
-    document.addEventListener('keydown', handleEscape);
-    
+    document.addEventListener("keydown", handleEscape);
+
     return () => {
-      document.removeEventListener('keydown', handleEscape);
+      document.removeEventListener("keydown", handleEscape);
     };
   }, [isMobileMenuOpen]);
 
@@ -66,19 +66,20 @@ function Navbar() {
       setIsScrolled(window.scrollY > 8);
     };
     onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <>
-      <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
+      <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""}`}>
         <div className={styles.navContent}>
           <div className={styles.leftSection}>
             <Logo size="medium" />
             <div className={styles.navigationLinks}>
               <NavbarLink to="/">Головна</NavbarLink>
               <NavbarLink to="/movies">Фільми</NavbarLink>
+              <NavbarLink to="/author">Про автора</NavbarLink>
               {isAuthenticated && (
                 <>
                   <NavbarLink to="/favorites">Улюблені</NavbarLink>
@@ -94,14 +95,21 @@ function Navbar() {
             ) : isAuthenticated ? (
               <>
                 <span className={styles.welcome}>
-                  Привіт, <span className={styles.username}>{user?.username || user?.name || "User"}</span>!
+                  Привіт,{" "}
+                  <span className={styles.username}>
+                    {user?.username || user?.name || "User"}
+                  </span>
+                  !
                 </span>
                 <NavbarLink to="/profile">Профіль</NavbarLink>
               </>
             ) : (
               <NavbarLink to="/login">Вхід</NavbarLink>
             )}
-            <BurgerMenu isOpen={isMobileMenuOpen} toggleMenu={toggleMobileMenu} />
+            <BurgerMenu
+              isOpen={isMobileMenuOpen}
+              toggleMenu={toggleMobileMenu}
+            />
           </div>
         </div>
       </nav>
@@ -110,14 +118,18 @@ function Navbar() {
       {isMobileMenuOpen && (
         <>
           {/* Overlay для закриття меню при кліку поза ним */}
-          <div 
-            className={styles.overlay} 
+          <div
+            className={styles.overlay}
             onClick={closeMobileMenu}
             aria-hidden="true"
           />
 
           {/* Мобільне меню */}
-          <div className={`${styles.mobileMenu} ${styles.open}`} role="dialog" aria-modal="true">
+          <div
+            className={`${styles.mobileMenu} ${styles.open}`}
+            role="dialog"
+            aria-modal="true"
+          >
             <div className={styles.mobileMenuContent}>
               <div className={styles.mobileHeader}>
                 <BurgerMenu
@@ -128,21 +140,40 @@ function Navbar() {
                 />
                 {isAuthenticated && (
                   <div className={styles.welcomeMobile}>
-                    Привіт, <span className={styles.username}>{user?.username || user?.name || "User"}</span>!
+                    Привіт,{" "}
+                    <span className={styles.username}>
+                      {user?.username || user?.name || "User"}
+                    </span>
+                    !
                   </div>
                 )}
               </div>
               <div className={styles.mobileNavigationLinks}>
-                <NavbarLink to="/" onClick={closeMobileMenu}>Головна</NavbarLink>
-                <NavbarLink to="/movies" onClick={closeMobileMenu}>Фільми</NavbarLink>
+                <NavbarLink to="/" onClick={closeMobileMenu}>
+                  Головна
+                </NavbarLink>
+                <NavbarLink to="/movies" onClick={closeMobileMenu}>
+                  Фільми
+                </NavbarLink>
+                <NavbarLink to="/author" onClick={closeMobileMenu}>
+                  Про автора
+                </NavbarLink>
                 {isAuthenticated ? (
                   <>
-                    <NavbarLink to="/favorites" onClick={closeMobileMenu}>Улюблені</NavbarLink>
-                    <NavbarLink to="/my-ratings" onClick={closeMobileMenu}>Мої оцінки</NavbarLink>
-                    <NavbarLink to="/profile" onClick={closeMobileMenu}>Профіль</NavbarLink>
+                    <NavbarLink to="/favorites" onClick={closeMobileMenu}>
+                      Улюблені
+                    </NavbarLink>
+                    <NavbarLink to="/my-ratings" onClick={closeMobileMenu}>
+                      Мої оцінки
+                    </NavbarLink>
+                    <NavbarLink to="/profile" onClick={closeMobileMenu}>
+                      Профіль
+                    </NavbarLink>
                   </>
                 ) : (
-                  <NavbarLink to="/login" onClick={closeMobileMenu}>Вхід</NavbarLink>
+                  <NavbarLink to="/login" onClick={closeMobileMenu}>
+                    Вхід
+                  </NavbarLink>
                 )}
               </div>
             </div>
